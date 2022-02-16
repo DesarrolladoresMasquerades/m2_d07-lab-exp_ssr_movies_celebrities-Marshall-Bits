@@ -1,1 +1,21 @@
-<h1>New celebrities</h1>
+<h1>New celebrity</h1>
+
+<form action="/celebrities/create" method="POST">
+  <label> Name:
+    <input type="text" name="name" />
+  </label>
+  <br>
+
+  <label> Occupation:
+    <textarea type="text" name="occupation"> </textarea>
+  </label>
+  <br>
+
+  <label> Catch phrase:
+    <textarea type="text" name="catchPhrase"> </textarea>
+  </label>
+  <br>
+
+
+  <button type="submit"> Create celebrity </button>
+</form>
