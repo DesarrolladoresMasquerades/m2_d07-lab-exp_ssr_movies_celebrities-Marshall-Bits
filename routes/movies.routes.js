@@ -6,9 +6,19 @@ const Movie = require("../models/Movie.model")
 
 router.get('/', (req, res, next) => {
     Movie.find()
-    .then((dbMovies)=>{
-        res.render("movies/movies", {dbMovies})
-    })
+        .then((dbMovies) => {
+            res.render("movies/movies", { dbMovies })
+        })
+})
+
+router.get('/:id', (req, res, next) => {
+    Movie.findById(req.params.id)
+        .then(movie => res.render("movies/movie-details", movie))
+})
+
+router.post('/:id/delete', (req, res, next) => {
+    Movie.findByIdAndDelete(req.params.id)
+        .then(res.redirect("/"))
 })
 
 router.get('/create', (req, res, next) => {
