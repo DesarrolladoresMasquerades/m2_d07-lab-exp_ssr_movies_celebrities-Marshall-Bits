@@ -21,6 +21,11 @@ router.post('/:id/delete', (req, res, next) => {
         .then(res.redirect("/"))
 })
 
+router.get('/:id/edit', (req, res, next) => {
+    Movie.findById(req.params.id)
+        .then(movie =>res.render('movies/edit-movie', movie))
+})
+
 router.get('/create', (req, res, next) => {
     res.render('movies/new-movie')
 });
